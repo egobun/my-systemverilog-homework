@@ -31,10 +31,10 @@ module xor_gate_using_mux
   //xor = (a|b) & (~(a&b))
 
   logic na,out1,out2,nout2;
-  mux not_a_mux(1,0,a,na);
+  mux not_a_mux(1'b1,1'b0,a,na);
   mux or_mux(a,b,na,out1);//sel = ~a
   mux and_mux(a,b,a,out2);//sel = a
-  mux not_out2_mux(1,0,out2,nout2);
+  mux not_out2_mux(1'b1,1'b0,out2,nout2);
   mux and_mux_out(out1,nout2,out1,o);//sel = out1
 
 endmodule

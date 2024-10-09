@@ -33,22 +33,29 @@ module mux_4_1
   // write code for 4:1 mux using the "if" statement
   logic[3:0] y1;
   logic[3:0] y2;
-  always_comb
+  always@(*)
     if (sel[0])
       begin
         y1 = d1;
         y2 = d3;
+        if(sel[1])
+          y = y2;
+        else
+          y = y1;
       end
     else
       begin
         y1 = d0;
         y2 = d2;
+        if(sel[1])
+          y = y2;
+        else
+          y = y1;
       end
-  always_comb
-    if (sel[1])
+    /*else if (sel[1])
       y = y2;
     else
-      y = y1;
+      y = y1;*/
 
 
 endmodule
